@@ -1,0 +1,61 @@
+<html>
+	<head>
+		<title> Slot Machine </title>
+		<script src="20-03-16 Javascript Randomizers.js"></script>
+		<link rel="stylesheet" href="20-03-16 CSC 370 Homework 7 - Style.css">
+	</head>
+	<body align="center">
+		<div id="fullPage">
+			<h1>
+				Slot Machine
+			</h1>
+			
+			<img src="Toby 1.jpg" id="img1" height="400px" width="300px"></img>
+			<img src="Toby 1.jpg" id="img2" height="400px" width="300px"></img>
+			<img src="Toby 1.jpg" id="img3" height="400px" width="300px"></img>
+			
+			<br>
+			<input type="button" id="spinButton" value="Click to Spin"
+				onclick="spin()"/>
+			
+			<div id="creditSpace">
+				Credits:
+				<input type=number id="credits" value="20" readonly>
+			</div>
+			
+			<div id="outputMsgBox">
+				Welcome to this slot machine website, please press the "Click to Spin" button to begin.
+			</div>
+		</div>
+	</body>
+	<script>
+		function spin()
+		{
+			var imgArray = ["Toby 1.jpg", "Toby 2.jpg", "Toby 3.jpg", "Toby 4.jpg"]
+			var credit = parseInt(document.getElementById("credits").value);
+			
+			if (credit == 0)
+			{
+				document.getElementById("outputMsgBox").innerHTML="You do not have enough credits to play. Sorry!";
+			}
+			else
+			{
+				credit = (credit - 1);
+				document.getElementById("img1").src=randomOneOf(imgArray);
+				document.getElementById("img2").src=randomOneOf(imgArray);
+				document.getElementById("img3").src=randomOneOf(imgArray);
+				if (document.getElementById("img1").src == document.getElementById("img2").src && document.getElementById("img2").src == document.getElementById("img3").src)
+				{
+					credit = (credit + 10);
+					document.getElementById("credits").value = credit;
+					document.getElementById("outputMsgBox").innerHTML="You won! You now have have " + credit + " credits.";
+				}
+				else
+				{
+					document.getElementById("credits").value = credit;
+					document.getElementById("outputMsgBox").innerHTML="You lost. Better luck next time! You now have have " + credit + " credits.";
+				}
+			}
+		}
+	</script>
+</html>
