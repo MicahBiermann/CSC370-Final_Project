@@ -17,6 +17,19 @@ public class Csc370FinalProject
     public static void main(String[] args) throws IOException
     {
         
+//        if("Athing".compareTo("athing")>0)
+//        {
+//            System.out.print("a is more than A.");
+//        }
+//        else if("Athing".compareTo("athing")==0)
+//        {
+//            System.out.print("A equeals a.");
+//        }
+//        else if("Athing".compareTo("athing")<0)
+//        {
+//            System.out.print("A is more than a.");
+//        }
+//        
         Scanner scnrUserIn = new Scanner(System.in);
         System.out.print("Please enter number of files to read from:");
         int numFiles = scnrUserIn.nextInt();
@@ -58,12 +71,119 @@ public class Csc370FinalProject
             fileInput.close();
             fin.close();
             
+            AlphabeticalSorting.sort(words, count);
+            NumericalSorting.sort(words, count);
+            
+            System.out.println("In " + fileName[i] + ":");
+            if(count.contains(1))
+            {
+                System.out.print("Words occuring one time: ");
+                for(int j = 0; j < words.size(); j++)
+                {
+                    if(count.get(j) == 1 && j != count.size()-1)
+                    {
+                        System.out.print(words.get(j) + ", ");
+                    }
+                    else if(count.get(j) == 1 && j == count.size()-1)
+                    {
+                        System.out.print(words.get(j) + ".\n");
+                    }
+                    else if(j == count.size()-1)
+                    {
+                        System.out.print(".\n\n");
+                    }
+                }
+            }
+            
+            if(count.contains(2))
+            {
+                System.out.print("Words occuring twice: ");
+                for(int j = 0; j < words.size(); j++)
+                {
+                    if(count.get(j) == 2 && j != count.size()-1)
+                    {
+                        System.out.print(words.get(j) + ", ");
+                    }
+                    else if(count.get(j) == 2 && j == count.size()-1)
+                    {
+                        System.out.print(words.get(j) + ".\n\n");
+                    }
+                    else if(j == count.size()-1)
+                    {
+                        System.out.print(".\n\n");
+                    }
+                }
+            }
+            
+            if(count.contains(3))
+            {
+                System.out.print("Words occuring three times: ");
+                for(int j = 0; j < words.size(); j++)
+                {
+                    if(count.get(j) == 3 && j != count.size()-1)
+                    {
+                        System.out.print(words.get(j) + ", ");
+                    }
+                    else if(count.get(j) == 3 && j == count.size()-1)
+                    {
+                        System.out.print(words.get(j) + ".\n\n");
+                    }
+                    else if(j == count.size()-1)
+                    {
+                        System.out.print(".\n\n");
+                    }
+                }
+            }
+            
+            if(count.contains(4))
+            {
+                System.out.print("Words occuring four times: ");
+                for(int j = 0; j < words.size(); j++)
+                {
+                    if(count.get(j) == 4 && j != count.size()-1)
+                    {
+                        System.out.print(words.get(j) + ", ");
+                    }
+                    else if(count.get(j) == 4 && j == count.size()-1)
+                    {
+                        System.out.print(words.get(j) + ".\n\n");
+                    }
+                    else if(j == count.size()-1)
+                    {
+                        System.out.print(".\n\n");
+                    }
+                }
+            }
+            
+            if(count.contains(5))
+            {
+                System.out.print("Words occuring five times: ");
+                for(int j = 0; j < words.size(); j++)
+                {
+                    if(count.get(j) == 5 && j != count.size()-1)
+                    {
+                        System.out.print(words.get(j) + ", ");
+                    }
+                    else if(count.get(j) == 5 && j == count.size()-1)
+                    {
+                        System.out.print(words.get(j) + ".\n\n");
+                    }
+                    else if(j == count.size()-1)
+                    {
+                        System.out.print(".\n\n");
+                    }
+                }
+            }
+
+            System.out.print("Words occuring more than 5 times:\n");
             for(int j = 0; j < words.size(); j++)
             {
-               System.out.println("In " + fileName[i] + " \"" + words.get(j) + "\" occured " + count.get(j) + " time(s).");
+                if(count.get(j) > 5)
+                {
+                    System.out.println("\"" + words.get(j) + "\"" + " occured " + count.get(j) + " times.");
+                }
             }
+            System.out.println("===============================================================================");
         }
-       
     }
-   
 }
