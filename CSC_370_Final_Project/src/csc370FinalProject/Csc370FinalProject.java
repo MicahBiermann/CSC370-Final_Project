@@ -15,7 +15,6 @@ public class Csc370FinalProject
 {
     public static final String INDEX_DIR = "C:\\Users\\Micah\\Documents\\Essays & School Papers\\2019-2020 School Papers\\Spring 2020\\CSC 370\\CSC 370 Final Project\\Lucene Index\\"; //The default Lucene index files folder
     public static final String FILEPATH = "C:\\Users\\Micah\\Documents\\Essays & School Papers\\2019-2020 School Papers\\Spring 2020\\CSC 370\\CSC 370 Final Project\\Test Documents\\"; //The default filepath
-    public static final String FILETYPE = ".txt"; //The default filetype
     public static final String ALLOWEDCHARSPATTERN = "[^a-zA-Z'’-]"; //List of characters that will be counted as part of a word
     public static final String[] WORDSBLACKLIST = {"the", "of", "in", "and", "as", "like", "on", "to", "at"}; //List of words to not be tallied by the program
     
@@ -25,7 +24,8 @@ public class Csc370FinalProject
         System.out.print("Please enter number of files to read from:");
         int numFiles = scnrUserIn.nextInt();
         scnrUserIn.nextLine();
-        System.out.println("Assuming files are .txt files in \"CSC 370 Final Project\".");
+        System.out.println("Please ensure an accurate default filepath.");
+        System.out.println("Assuming files are .txt files in \"" + FILEPATH + "\".");
         
         String[] fileNameAndPath = new String[numFiles]; //Creates arrays to store the names and paths for all files
         String[] fileName = new String[numFiles];
@@ -33,7 +33,7 @@ public class Csc370FinalProject
         {
             System.out.print("\nPlease enter the name of file number " + (i + 1) + ":");
             fileName[i] = scnrUserIn.nextLine();
-            fileNameAndPath[i] = FILEPATH + fileName[i] + FILETYPE;
+            fileNameAndPath[i] = FILEPATH + fileName[i] + ".txt";
         
             FileInputStream fin = new FileInputStream(fileNameAndPath[i]); //Initializes a file input stream for given file
             Scanner fileInput = new Scanner(fin);
